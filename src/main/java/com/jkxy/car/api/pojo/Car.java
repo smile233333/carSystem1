@@ -7,6 +7,8 @@ public class Car {
     private String carType;
     private String price;
     private String carSeries;
+    private int carStock;
+    private int version;
 
     public int getId() {
         return id;
@@ -48,6 +50,22 @@ public class Car {
         this.carSeries = carSeries;
     }
 
+    public int getCarStock() {
+        return carStock;
+    }
+
+    public int setCarStock(int carStock) {
+       return this.carStock = carStock;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -56,6 +74,11 @@ public class Car {
                 ", carType='" + carType + '\'' +
                 ", price='" + price + '\'' +
                 ", carSeries='" + carSeries + '\'' +
+                ", carStock='" + carStock + '\''+
+                ", version='" + version + '\''+
                 '}';
     }
+
+
+
 }

@@ -18,4 +18,10 @@ public interface CarService {
     void updateById(Car car);
 
     void insertCar(Car car);
+
+    List<Car> findByCarNameLike(String carName, int start, int end);
+
+    void buyCar(String carName,Integer num);
+
+    void updateByIdAndVersion(Car car);
 }

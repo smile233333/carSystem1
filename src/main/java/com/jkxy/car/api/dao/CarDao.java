@@ -23,6 +23,14 @@ public interface CarDao {
     @Update("update carMessage set carName=#{carName},carType=#{carType},price=#{price},carSeries=#{carSeries} where id = #{id}")
     void updateById(Car car);
 
-    @Insert("insert into carMessage(carName,carType,price,carSeries) values(#{carName},#{carType},#{price},#{carSeries})")
+    @Insert("insert into carMessage(carName,carType,price,carSeries,carStock) values(#{carName},#{carType},#{price},#{carSeries},#{carStock})")
     void insertCar(Car car);
+
+    @Select("select * from carMessage where carName  like concat ('%',#{carName},'%') limit #{start},#{end}")
+    List<Car> findByCarNameLike(String carName, int start, int end);
+
+    @Update("update carMessage set carStock=#{carStock},version=#{version}+1 where id = #{id} and version=#{version}")
+    void updateByIdAndVersion(Car car);
+
+    void buyCar(String carName, Integer num);
 }
